@@ -28,6 +28,8 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		p:prefix="/" p:suffix=".jsp" />
 
+	<mvc:default-servlet-handler/>
+
 	<bean id="stringConverter"
 		  class="org.springframework.http.converter.StringHttpMessageConverter">
 		<property name="supportedMediaTypes">
