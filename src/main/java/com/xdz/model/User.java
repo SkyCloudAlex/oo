@@ -17,6 +17,25 @@ public class User {
     @Column
     private String username;
 
+    @Column
+    private String age;
+
+    public Long getXid() {
+        return xid;
+    }
+
+    public void setXid(Long xid) {
+        this.xid = xid;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
     public String getUsername() {
         return username;
     }
