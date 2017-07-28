@@ -50,7 +50,7 @@
             <div class="login-font">
                 <i>注册</i>丨<span>介绍</span>
                 <div>
-                    <form action="/user/uploadExcel" method="post" enctype="multipart/form-data">
+                    <form action="/user/testWrongFormat" method="post" enctype="multipart/form-data">
                         <input type="file" name="excelFile" />
                         <input type="submit" value="上传" />
                     </form>
@@ -58,10 +58,6 @@
             </div>
         </div>
     </div>
-
-
-
-
 
 </body>
 

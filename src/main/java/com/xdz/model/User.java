@@ -44,5 +44,11 @@ public class User {
         this.username = username;
     }
 
+    public User(String username, String age) {
+        this.username = username;
+        this.age = age;
+    }
 
+    public User() {
+    }
 }
