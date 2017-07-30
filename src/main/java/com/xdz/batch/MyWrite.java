@@ -29,7 +29,5 @@ public class MyWrite implements ItemWriter<User> {
             userDao.addUser();
         }
 
-        System.out.println("Ö´ĞĞ½áÊø!!");
-
     }
 }

@@ -14,6 +14,7 @@ import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
+import org.springframework.core.task.SyncTaskExecutor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,7 +60,7 @@ public class UserController {
             try {
                 ExecutorService executorService = Executors.newFixedThreadPool(10);
 
-                for (int i = 0; i < 20; i++) {
+                for (int i = 0; i < 5; i++) {
                     executorService.execute(new Runnable() {
                         public void run() {
                             batch();
@@ -72,12 +73,12 @@ public class UserController {
             }
     }
 
-    private synchronized void batch(){
-        ApplicationContext context = new ClassPathXmlApplicationContext(new String[] { "classpath:job.xml" });
-        SimpleJobLauncher launcher = (SimpleJobLauncher) context.getBean("jobLauncher");
-        Job job = (Job) context.getBean("testJob");
-
+    private void batch(){
         try {
+            ApplicationContext context = new ClassPathXmlApplicationContext(new String[] { "classpath:job.xml" });
+            SimpleJobLauncher launcher = (SimpleJobLauncher) context.getBean("jobLauncher");
+            Job job = (Job) context.getBean("testJob");
+
             JobExecution result = launcher.run(job, new JobParameters());
             System.out.println(result.toString());
         } catch (Exception e) {
